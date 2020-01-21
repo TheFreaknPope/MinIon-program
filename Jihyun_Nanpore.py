@@ -4,6 +4,13 @@ import re
 import pandas as pd
 import numpy as np
 
+
+#----------------------------------------------------------------------------
+
+"""
+Class creation setion
+"""
+
 class References():
     """
     Turns the Fasta file into a Pandas DataFrame, which can then be used for
@@ -73,17 +80,13 @@ class Reads():
 
     def __repr__(self):
         return 'DataFrame of all pore reads.'
-
-
-new = References()
-Reference_blast = new.to_df('horf81_cloneInfo20120427.fasta')
-
-
+#----------------------------------------------------------------------------
+#Note: Find out direction of the sequence that is being read. Like 5' from 3'
 
 """
-Find out direction of the sequence that is being read. Like 5' from 3'
-
+Set up new Backbone DataFrame as our Blast database
 """
+
 backbone_3p = 'ATATCGGCATAGTATAATACGACAAGGTGAGGAACTAAACCCGCGCCATGGCCAAGCCTTTGTCTCAAGAAGAATCCACCCTCATTGAAAGAGCAACGGCTACAATCAACAGCATCCCCATCTCTGAAGACTACAGCGTCGCCAGCGCAGCTCTCTCTAGCGACGGCCGCATCTTCACTGGTGTCAATGTATATCATTTTACTGGGGGACCTTGTGCAGAACTCGTGGTGCTGGGCACTGCTGCTGCTGCGGCAGCTGGCAACCTGACTTGTATCGTCGCGATCGGAAATGAGAACAGGGGCATCTTGAGCCCCTGCGGACGGTGCCGACAGGTGCTTCTCGATCTGCATCCTGGGATCAAAGCCATAGTGAAGGACAGTGATGGACAGCCGACGGCAGTTGGGATTCGTGAATTGCTGCCCTCTGGTTATGTGTGGGAGGGCTAAACCGGTCAGCGCGTCTGGAACAATCAACCTCTGGATTACAAAATTTGTGAAAGATTGACTGGTATTCTTAACTATGTTGCTCCTTTTACGCTATGTGGATACGCTGCTTTAATGCCTTTGTATCATGCTATTGCTTCCCGTATGGCTTTCATTTTCTCCTCCTTGTATAAATCCTGGTTGCTGTCTCTTTATGAGGAGTTGTGGCCCGTTGTCAGGCAACGTGGCGTGGTGTGCACTGTGTTTGCTGACGCAACCCCCACTGGTTGGGGCATTGCCACCACCTGTCAGCTCCTTTCCGGGACTTTCGCTTTCCCCCTCCCTATTGCCACGGCGGAACTCATCGCCGCCTGCCTTGCCCGCTGCTGGACAGGGGCTCGGCTGTTGGGCACTGACAATTCCGTGGTGTTGTCGGGGAAGCTGACGTCCTTTCCATGGCTGCTCGCCTGTGTTGCCACCTGGATTCTGCGCGGGACGTCCTTC'
 backbone_5p = 'TTGATATCCAGCACGACTACAAAGACCATGACGGTGATTATAAAGATCATGACATCGATTACAAGGATGACGATGACAAGTAATGGCCGCAGCCTCGAGCAGCGATCGCGCGGGATCCGCGTCTAGCCAGTAGGTCCACTATGAGT'
 
@@ -94,3 +97,16 @@ backbone_df = backbone_df.append(pd.DataFrame({'Sequence': backbone_3p,
 backbone_df = backbone_df.append(pd.DataFrame({'Sequence': backbone_5p,
                                               'GENE_ID': "5'"},
                                              index=[1]))
+
+#----------------------------------------------------------------------------
+"""
+Program running section
+"""
+
+
+
+
+
+new = References()
+# reference_fasta_file = 'horf81_cloneInfo20120427.fasta'
+Reference_blast = new.to_df(#reference_fasta_file)
