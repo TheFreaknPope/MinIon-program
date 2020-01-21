@@ -4,7 +4,7 @@
 
 <h3>Description</h3>
 
-</p>Taking Fastaq file outputs from the MinIon sequencer, and making them readable and easy to process. So that data analysis can be carried out on them.</p>
+</p>Taking Fastaq file outputs from the MinIon sequencer. Creating Panda's DataFrames. For downstream data analysis.</p>
 
 <h3>Work Flow Theory</h3>
 <ul>
