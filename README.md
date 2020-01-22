@@ -7,10 +7,19 @@
 </p>Taking Fastaq file outputs from the MinIon sequencer. Creating Panda's DataFrames. For downstream data analysis.</p>
 
 <h3>Packages Needed</h3>
-<p>You will need to download and insteall these packages, if you would like to run the program</p>
+<p>You will need to download and install these packages, if you would like to run the program.</p>
 <ul>
   <li>Seqtk https://github.com/lh3/seqtk.git made by: lh3</li>
 </ul>
+
+<h3>Files</h3>
+<h5>fastq_to_fasta.py</h5>
+<p>This is used to convert any fastq files into fasta files, you will need to replace:
+  <ol>
+    <li><code>bash_command</code> with the relavent directories of where seqtk is located, and the directory that holds the fastq files.</li>
+    <li><code>directory</code> with the relavent directory you want the files to be outputed to.</li>
+  </ol>
+  
 
 <h3>Work Flow Theory</h3>
 <ul>
