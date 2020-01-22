@@ -3,6 +3,7 @@ from Bio import SeqIO
 import re
 import pandas as pd
 import numpy as np
+import os
 
 
 #----------------------------------------------------------------------------
@@ -103,10 +104,12 @@ backbone_df = backbone_df.append(pd.DataFrame({'Sequence': backbone_5p,
 Program running section
 """
 
-
-
-
-
 new = References()
 # reference_fasta_file = 'horf81_cloneInfo20120427.fasta'
 Reference_blast = new.to_df(#reference_fasta_file)
+
+
+# Converting Fastaq to fasta files
+# Run a bash command to convert all of the Fastaq files in a folder into
+# Fasta files
+# This will be done on a seperagte file : MinIon_program/fastq_to_fasta.py
