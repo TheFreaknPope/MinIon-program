@@ -4,7 +4,7 @@ import re
 import pandas as pd
 import numpy as np
 import os
-
+import mappy as mp
 
 #----------------------------------------------------------------------------
 
@@ -108,8 +108,28 @@ new = References()
 # reference_fasta_file = 'horf81_cloneInfo20120427.fasta'
 Reference_blast = new.to_df(#reference_fasta_file)
 
+# Creating reads DataFrame
+minion_reads = Reads()
 
-# Converting Fastaq to fasta files
-# Run a bash command to convert all of the Fastaq files in a folder into
-# Fasta files
-# This will be done on a seperagte file : MinIon_program/fastq_to_fasta.py
+fasta_directory = '/Users/andrewpowers/Documents/output_fasta_new/'
+fastq_directory = '/Users/andrewpowers/Dropbox (Rejuvenate Bio)/Rejuvenate Bio Team Folder/Noah Davidsohn/nanoporefasta/outputSkip/'
+
+# Iterate to add all of the Reads
+for file in os.listdir('/Users/andrewpowers/Documents/server/fasta_pass/'):
+        minion_reads.add_to_df('/Users/andrewpowers/Documents/server/fasta_pass/' + file)
+        print(f'{file} added to the Reads DataFrame.')
+
+"""
+Running Mappy to Align the sequences against the reference file.
+Mappy can take a reference fasta file, or a particular sequence.
+This needs to be annotated like this:
+mappy.Aligner(seq=?)
+"""
+
+
+mappy_ref = mappy.Aligner("~/Documents/server/horf81_cloneInfo20120427.fasta")
+
+
+
+# Iterating through DataFrame seqs to compare to the reference
+align_object = mappy_ref.map(minion_reads.Sequence.iloc[0])
